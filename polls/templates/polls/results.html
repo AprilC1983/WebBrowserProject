@@ -1,3 +1,8 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+<link href='http://fonts.googleapis.com/css?family=Pinyon+Script' rel='stylesheet' type='text/css'>
+
 <h1>{{ question.question_text }}</h1>
 
 <ul>
@@ -5,5 +10,6 @@
     <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
 {% endfor %}
 </ul>
+
 
 <a href="{% url 'polls:detail' question.id %}">Vote again?</a>
