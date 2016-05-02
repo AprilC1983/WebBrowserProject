@@ -3,8 +3,11 @@
 <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
 <link href='http://fonts.googleapis.com/css?family=Pinyon+Script' rel='stylesheet' type='text/css'>
 
-<h1>{{ question.question_text }}</h1>
+<h3><a href = "http://127.0.0.1:8000/polls/">Home<a></h3>
+<h3><a href = "http://127.0.0.1:8000/admin/">Access Admin Page<a></h3>
 
+<h1>{{ question.question_text }}</h1>
+<center>
 <ul>
 {% for choice in question.choice_set.all %}
     <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
@@ -13,3 +16,4 @@
 
 
 <a href="{% url 'polls:detail' question.id %}">Vote again?</a>
+</center>

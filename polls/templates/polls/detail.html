@@ -4,11 +4,12 @@
 <link href='http://fonts.googleapis.com/css?family=Pinyon+Script' rel='stylesheet' type='text/css'>
 
 <h3><a href = "http://127.0.0.1:8000/polls/">Home<a></h3>
+<h3><a href = "http://127.0.0.1:8000/admin/">Access Admin Page<a></h3>
 
 <h1>{{ question.question_text }}</h1>
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-
+<center>
 <form action="{% url 'polls:vote' question.id %}" method="post">
 {% csrf_token %}
 {% for choice in question.choice_set.all %}
@@ -18,3 +19,4 @@
 <br/>
 <input type="submit" value="Vote" />
 </form>
+</center>
