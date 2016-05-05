@@ -1,22 +1,59 @@
 {% load staticfiles %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
-<link href='http://fonts.googleapis.com/css?family=Pinyon+Script' rel='stylesheet' type='text/css'>
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>We Love Polls!</title>
+      <!-- 
+         Voting for Python2
+         Filename: index2.html
 
-<h3><a href = "http://127.0.0.1:8000/polls/">Home<a></h3>
-<h3><a href = "http://127.0.0.1:8000/admin/">Access Admin Page<a></h3>
+         Author: Matthew Snead & April May
+         Date: 5/4/2016   
+      -->
+	  <meta charset="utf-8">
+	  <link href='https://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
+	  <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+	  <link href='http://fonts.googleapis.com/css?family=Pinyon+Script' rel='stylesheet' type='text/css'>
+   </head>
+   <body>
+		<div class="container">
+			<p class="skipnavigation"><a href="#contentstart">Skip navigation</a></p>
+			<header>
+				<h3>The Voting Website</h3>
+			</header>
+			<nav class = "sitenavigation">
+				<ul> 
+					<li><a href = "http://127.0.0.1:8000/polls/">Home<a></li>
+					<li><a href = "http://127.0.0.1:8000/admin/">Access Admin Page<a></li>
+				</ul>
+			</nav>
+			<article>
+				<figure class="bunny">
+					<img href="{% static 'polls/background.jpg' %}" width="400" height="400" alt="">
+					<figcaption>Bodacious Bunny</figcaption>	
+				</figure>
+				<div>
+					<h1>{{ question.question_text }}</h1>
 
-<h1>{{ question.question_text }}</h1>
+					{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+					<center>
+					<form action="{% url 'polls:vote' question.id %}" method="post">
+					{% csrf_token %}
+					{% for choice in question.choice_set.all %}
+						<input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
+						<label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br/>
+					{% endfor %}
+					<br/>
+					<input type="submit" value="Vote" />
+					</form>
+					</center>
+				</div>
+			</article>
+			<footer>
+				<p>Questions? Mail Me At my email: msnead0002@kctcs.edu</a></p>
+			</footer>
+		</div>
+   </body>
+   
 
-{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-<center>
-<form action="{% url 'polls:vote' question.id %}" method="post">
-{% csrf_token %}
-{% for choice in question.choice_set.all %}
-    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
-    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br/>
-{% endfor %}
-<br/>
-<input type="submit" value="Vote" />
-</form>
-</center>

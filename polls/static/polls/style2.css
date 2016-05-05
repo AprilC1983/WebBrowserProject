@@ -1,24 +1,16 @@
-/* reset styles */
-html {
-   font-size: 20px;
+li a {
+    color: white;
 }
-a, article, body, div, figcaption, figure, 
-footer, header, h1, h2, h3, img, nav, p, ul, li {
-   border: 0;
-   padding: 0;
-   margin: 0;
-}
-img {
-   max-width: 100%;
-   height: 300px;
-   width: 300px;
-}
-ul {
-	list-style-type: none;
-}
+
+a.white		{color: white;
+		font-size: 2em;
+		font-family: "pinyon script", "times new roman", arial, sans-serif;
+		text-decoration: none;}
+
 		
 /* body and page containers */
 body {
+    background: teal url("images/background.JPG") no-repeat center bottom;
     font-family: Arial, Helvetica, sans-serif;
 }
 .container {
@@ -121,50 +113,29 @@ article {
 }
 article h1 {
    margin-bottom: 0.6em;
-   font-family: Dosis, "times new roman", sans-serif;
+   font-family: "pinyon script", "times new roman", sans-serif;
    font-size: 3em;
    line-height: 2em;
    font-weight: 400;
    text-align: center;
    font-style: itallic;
-   color: black;
+   color: white;
 }
 article h2 {
    font-size: 1.2em;
    font-style: itallic;
-   padding-bottom: 7em;
+   clear: right;
 }
-article figure.owl {
+article figure {
    max-width: 100%;
    margin: 0 0 1em 1em;
    float: right;
    border: 1px solid black;
    background-color: grey;
-   background: grey url("images/owls2.jpg") no-repeat;
-}
-article figure.turtle {
-   max-width: 100%;
-   margin: 0 0 1em 1em;
-   float: right;
-   border: 1px solid black;
-   background-color: grey;
-   background: grey url("images/turtles.jpg") no-repeat;
-}
-article figure.bunny {
-   max-width: 100%;
-   margin: 0 0 1em 1em;
-   float: right;
-   border: 1px solid black;
-   background-color: grey;
-   background: grey url("images/bunnies2.jpg") no-repeat;
 }
 article figcaption {
    text-align: center;
    font-weight: bold;
-   background-color: grey;
-}
-article center {
-	padding-bottom: 20em;
 }
 article p {
    margin: 0 2em 1em;
@@ -182,6 +153,28 @@ article ul {
 	list-style-type: disc;
 	line-height: 1.4em;
 }
+	
+/* main content description list */
+article dt {
+	font-weight: bold;
+}
+article dd {
+	margin: 0.4em 0 1em;
+	
+}
+
+/* main content ordered list */
+article ol {
+	margin-left: 5%;
+	margin-right: 5%;
+	list-style-type: decimal;
+}
+article ol li {
+	left: 0.6em;
+}
+article li {
+	padding: .5em;
+}
 
 /* footer section */
 footer {
@@ -190,3 +183,5 @@ footer {
    color: white;
    background-color: grey;
 }
+
+
